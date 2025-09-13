@@ -57,7 +57,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\ProjectModel.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Utils\RelayCommand.cs" />
     <Compile Include="ViewModel\ProjectViewModel.cs" />
     <Compile Include="View\ProjectView.xaml.cs">
       <DependentUpon>ProjectView.xaml</DependentUpon>

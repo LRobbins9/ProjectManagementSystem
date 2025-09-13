@@ -24,7 +24,13 @@
         <ListView Name="Projects" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="6" ItemsSource="{Binding Projects}" Margin="1,1,1,1">
             <ListView.View>
                 <GridView x:Name="projectsTable">
-                    <GridViewColumn Header="Project Description" DisplayMemberBinding="{Binding ProjectDescription}" Width="225"/>
+                    <GridViewColumn Header="Project Description" Width="225">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding ProjectDescription}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="Owner Name" DisplayMemberBinding="{Binding OwnerName}" Width="150"/>
                     <GridViewColumn Header="Project Members" Width="225">
                         <GridViewColumn.CellTemplate>
@@ -67,12 +73,12 @@
                 <Label Content="Non-Functional Requirements" FontSize="15" HorizontalAlignment="Center"/>
             </UniformGrid>
             <UniformGrid Rows="2" Columns="6">
-                <TextBox x:Name="proj_desc_txtbox" Text="{Binding Path=ProjectDescriptionTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200"/>
-                <TextBox x:Name="owner_name_txtbox" Text="{Binding Path=OwnerNameTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200"/>
-                <TextBox x:Name="proj_members_txtbox" Text="{Binding Path=ProjectMembersTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200"/>
-                <TextBox x:Name="risks_txtbox" Text="{Binding Path=RisksTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200"/>
-                <TextBox x:Name="func_req_txtbox" Text="{Binding Path=FunctionalRequirementsTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200"/>
-                <TextBox x:Name="non_func_req_txtbox" Text="{Binding Path=NonFunctionalRequirementsTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200"/>
+                <TextBox x:Name="proj_desc_txtbox" Text="{Binding Path=ProjectDescriptionTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200" TextWrapping="Wrap"/>
+                <TextBox x:Name="owner_name_txtbox" Text="{Binding Path=OwnerNameTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200" TextWrapping="Wrap"/>
+                <TextBox x:Name="proj_members_txtbox" Text="{Binding Path=ProjectMembersTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200" TextWrapping="Wrap"/>
+                <TextBox x:Name="risks_txtbox" Text="{Binding Path=RisksTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200" TextWrapping="Wrap"/>
+                <TextBox x:Name="func_req_txtbox" Text="{Binding Path=FunctionalRequirementsTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200" TextWrapping="Wrap"/>
+                <TextBox x:Name="non_func_req_txtbox" Text="{Binding Path=NonFunctionalRequirementsTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="200" Height="200" TextWrapping="Wrap"/>
             </UniformGrid>
         </StackPanel>
         <Button x:Name="clear_textboxes_button" Content="Clear Form" Height="50" Width="200" Click="Clear_Form" Grid.Column="2" Grid.Row="1"/>
