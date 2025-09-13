@@ -1,5 +1,4 @@
-﻿using ProjectManagementSystem.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,23 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjectManagementSystem
+namespace ProjectManagementSystem.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ProjectView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProjectView : UserControl
     {
-        ProjectViewModel projView;
-        public MainWindow()
+        public ProjectView()
         {
             InitializeComponent();
-            projView = new ProjectViewModel();
         }
 
-        private void Continue_Clicked(object sender, RoutedEventArgs e)
+        private void Clear_Form(object sender, RoutedEventArgs e)
         {
-            DataContext = projView;
+            proj_desc_txtbox.Clear();
+            owner_name_txtbox.Clear();
+            proj_members_txtbox.Clear();
+            risks_txtbox.Clear();
+            func_req_txtbox.Clear();
+            non_func_req_txtbox.Clear();
         }
     }
 }

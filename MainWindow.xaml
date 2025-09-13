@@ -4,9 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectManagementSystem"
+        xmlns:viewmodels="clr-namespace:ProjectManagementSystem.ViewModel"
+        xmlns:views="clr-namespace:ProjectManagementSystem.View"
         mc:Ignorable="d"
-        Title="Project Management System" Height="850" Width="1600">
-    <Grid>
+        Title="Project Management System" Height="750" Width="1300">
+    <Window.Resources>
+        <DataTemplate x:Name="projectViewTemplate" DataType="{x:Type viewmodels:ProjectViewModel}">
+            <views:ProjectView DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -19,63 +26,13 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
-        <ListView Name="Projects" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="6" ItemsSource="{Binding Projects}" Margin="1,1,5,5">
-            <ListView.View>
-                <GridView x:Name="projectsTable">
-                    <GridViewColumn Header="Project Description" DisplayMemberBinding="{Binding ProjectDescription}" Width="275"/>
-                    <GridViewColumn Header="Owner Name" DisplayMemberBinding="{Binding OwnerName}" Width="200"/>
-                    <GridViewColumn Header="Project Members" Width="275">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" Text="{Binding ProjectMembers}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Risks and Risk Status" Width="250">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" Text="{Binding Risks}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Functional Requirements" Width="300">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" Text="{Binding FunctionalRequirements}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Non-Functional Requirements" Width="300">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock TextWrapping="Wrap" Text="{Binding NonFunctionalRequirements}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <StackPanel Background="LightBlue" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="6">
-            <UniformGrid Rows="1" Columns="6">
-                <Label Content="Project Description" FontSize="18" HorizontalAlignment="Center"/>
-                <Label Content="Owner Name" FontSize="18" HorizontalAlignment="Center"/>
-                <Label Content="Project Members" FontSize="18" HorizontalAlignment="Center"/>
-                <Label Content="Risk and Risk Status" FontSize="18" HorizontalAlignment="Center"/>
-                <Label Content="Functional Requirements" FontSize="18" HorizontalAlignment="Center"/>
-                <Label Content="Non-Functional Requirements" FontSize="18" HorizontalAlignment="Center"/>
-            </UniformGrid>
-            <UniformGrid Rows="2" Columns="6">
-                <TextBox x:Name="proj_desc_txtbox" Text="{Binding Path=ProjectDescriptionTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="250" Height="200"/>
-                <TextBox x:Name="owner_name_txtbox" Text="{Binding Path=OwnerNameTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="250" Height="200"/>
-                <TextBox x:Name="proj_members_txtbox" Text="{Binding Path=ProjectMembersTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="250" Height="200"/>
-                <TextBox x:Name="risks_txtbox" Text="{Binding Path=RisksTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="250" Height="200"/>
-                <TextBox x:Name="func_req_txtbox" Text="{Binding Path=FunctionalRequirementsTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="250" Height="200"/>
-                <TextBox x:Name="non_func_req_txtbox" Text="{Binding Path=NonFunctionalRequirementsTextbox, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="250" Height="200"/>
-            </UniformGrid>
-        </StackPanel>
-        <Button x:Name="clear_textboxes_button" Content="Clear Form" Height="50" Width="200" Click="Clear_Form" Grid.Column="2" Grid.Row="1"/>
-        <Button x:Name="add_project_button" Content="Add Project" Command="{Binding AddProjectButtonCommand}" Height="50" Width="200" Grid.Column="3" Grid.Row="1"/>
+
+        <TextBlock Text="Welcome to the Project Management System!" HorizontalAlignment="Center" FontSize="64" Grid.Row="0" Grid.ColumnSpan="6"/>
+        <TextBlock Text="Please click continue below to start adding your projects to the system" HorizontalAlignment="Center" FontSize="64" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="6"/>
+        <Button Content="Continue" FontSize="32" Click="Continue_Clicked" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="100" Width="300"/>
+
+
+        <ContentControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="3" Content="{Binding}"/>
     </Grid>
 </Window>
