@@ -21,7 +21,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ListView Name="Projects" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="6" ItemsSource="{Binding Projects}" Margin="1,1,5,5">
+        <ListView Name="Projects" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="6" ItemsSource="{Binding Projects}" Margin="1,1,1,1">
             <ListView.View>
                 <GridView x:Name="projectsTable">
                     <GridViewColumn Header="Project Description" DisplayMemberBinding="{Binding ProjectDescription}" Width="225"/>

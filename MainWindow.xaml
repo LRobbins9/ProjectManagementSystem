@@ -28,8 +28,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Welcome to the Project Management System!" HorizontalAlignment="Center" FontSize="64" Grid.Row="0" Grid.ColumnSpan="6"/>
-        <TextBlock Text="Please click continue below to start adding your projects to the system" HorizontalAlignment="Center" FontSize="64" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="6"/>
+        <TextBlock Text="Welcome to the Project Management System!" HorizontalAlignment="Center" FontSize="54" Grid.Row="0" Grid.ColumnSpan="6"/>
+        <TextBlock Text="Please click continue below to start adding your projects to the system" HorizontalAlignment="Center" FontSize="44" TextWrapping="Wrap" Grid.Row="1" Grid.ColumnSpan="6"/>
         <Button Content="Continue" FontSize="32" Click="Continue_Clicked" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Height="100" Width="300"/>
 
 
